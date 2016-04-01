@@ -12,9 +12,10 @@ body {
   border: blue solid 1px;
   width: 10em;
   height: 10em;
-  display: inline-block;
+  /*display: inline-block;*/
+  float: left;
 }
 
 .row {
-
+  /*box-sizing: border-box;*/
 }
