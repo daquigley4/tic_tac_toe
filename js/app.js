@@ -26,4 +26,49 @@ $(document).ready(function() {
 
   });
 
+//Determine Winner
+var function getWinner() {
+  if (winnerIs('x')) {
+    return 'Player X wins!';
+  }
+  else if (winnerIs('o')) {
+    return 'Player O wins!';
+  }
+  else {
+    return null;
+  }
+}
+
+var function winnerIs(){
+  return winByRow() || winByColumn() || winByDiagonal();
+}
+
+function winByRow() {
+  if (moves[0] && moves[1] && moves[2] == 'X') {
+    return 'player X wins!'
+  }
+  else if (moves[3] && moves[4] && moves[5] == 'X') {
+    return 'player X wins!'
+}
+  else if (moves[6] && moves[7] && moves[8] == 'X') {
+    return 'player X wins!'
+  }
+}
+
+function winByColumn() {
+
+}
+
+function winByDiagonal() {
+
+}
+
+
+  var oIsWinner = function(){
+
+  }
+
+
+
+
 });
