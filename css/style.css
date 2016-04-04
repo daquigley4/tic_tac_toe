@@ -20,3 +20,11 @@ body {
 .row {
   /*box-sizing: border-box;*/
 }
+
+.radio {
+  float: right;
+}
+
+.score {
+  float: left;
+}
