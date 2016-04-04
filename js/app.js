@@ -1,52 +1,98 @@
-// $(function) { - other way
 $(document).ready(function() {
 
-  var $gameCells = $('.cell');
-  var scoreX = 0;
-  var scoreO = 0;
-  var ties = 0;
-  $('#scoreX').text(scoreX);
-  $('#scoreO').text(scoreO);
-  $('#scoreTie').text(ties);
+var $gameCells = $('.cell');
+var $resetButton = $('#play_again');
+var scoreX = 0;
+var scoreO = 0;
+var ties = 0;
+
+var winner = null;
+var moves = ["", "", "", "", "", "", "", "", ""];
+var turn = 'X';
+var counter = 0;
 
 
-  singleClick();
+$('#scoreX').text(scoreX);
+$('#scoreO').text(scoreO);
+$('#scoreTie').text(ties);
 
- function singleClick() {
-  var moves = ["", "", "", "", "", "", "", "", ""];
-  var winner = null;
-  var counter = 0;
-  var turn = 'X';
+playGame();
 
-  $($gameCells).one('click', function() {
-    console.log('Gameboard clicked!');
+// Reset game
+  $($resetButton).on('click', function() {
     // moves[this.id] = (counter % 2 == 0)? 'X' : 'O';
     // moves[this.id] = this.id;
+      $($gameCells).off('click');
+      $('.cell').html("");
+      $(this).on();
+      var moves = ["", "", "", "", "", "", "", "", ""];
+      var counter = 0;
+      var winner = null;
+      var turn = 'X';
+      console.log(moves, counter, turn, winner);
+      console.log('Score = ' + scoreX + ' : ' + scoreO + ' Ties = ' + ties);
+      console.log('Game reset!');
+
+  playGame();
+
+  });
+//
+
+function playGame() {
+
+// Board Click
+  $($gameCells).one('click', function() {
+    console.log('Gameboard clicked!');
     $(this).html(turn);
     moves[this.id] = turn;
     counter++;
     if (counter % 2 == 0) {
       turn = 'X';
+      getWinner('O');
     }
-    else {
+    if (counter % 2 != 0) {
       turn = 'O';
+      getWinner('X');
     }
 
     console.log(this.id);
     console.log(moves, counter, turn);
-    console.log('Score = ' + scoreX + ' : ' + scoreO);
+    console.log('Score = ' + scoreX + ' : ' + scoreO + ' Ties = ' + ties);
 
+/*
+    if (winner !== null && turn === 'O') {
+        alert(winner);
+        scoreX++;
+    }
+    else if (winner !== null && turn === 'X') {
+        alert(winner);
+        scoreO++;
+    }
+    else if ((counter === 9) && (winner === null)) {
+        alert("Nobody wins! It's a tie!");
+        ties++
+    }
+*/
+    $('#scoreX').text(scoreX);
+    $('#scoreO').text(scoreO);
+    $('#scoreTie').text(ties);
+
+  });
+//
 
 //Determine Winner
 function getWinner(turn) {
   if (winnerIs('X')) {
-    return 'Player X wins!';
+    alert('Player X wins!');
+    scoreX++;
   }
   if (winnerIs('O')) {
-    return 'Player O wins!';
+    alert('Player O wins!');
+    scoreO++;
   }
-  else {
-    return null;
+  else if (counter === 9) {
+    alert("Nobody wins! It's a tie!");
+    ties++
   }
 }
 
@@ -69,47 +115,11 @@ function winByDiagonal(turn) {
 function threeOfAKind(turn, cell1, cell2, cell3) {
   return ((cell1 === turn) && (cell2 === turn) && (cell3 === turn));
 }
-
-winner = getWinner();
-
-if (winner !== null && turn === 'O') {
-    alert(winner);
-    scoreX++;
-}
-else if (winner !== null && turn === 'X') {
-    alert(winner);
-    scoreO++;
-}
-else if ((counter === 9) && (winner === null)) {
-    alert("Nobody wins! It's a tie!");
-    ties++
+//
 }
 
-  $('#scoreX').text(scoreX);
-  $('#scoreO').text(scoreO);
-  $('#scoreTie').text(ties);
 
 
-  });
-
-
-
-
-
-$('#play_again').on('click', function() {
-    // moves[this.id] = (counter % 2 == 0)? 'X' : 'O';
-    // moves[this.id] = this.id;
-    $('.cell').html("");
-    moves = ["", "", "", "", "", "", "", "", ""];
-    counter = 0;
-    // turn = 'X';
-    console.log(moves, counter, turn);
-    console.log('Score = ' + scoreX + ' : ' + scoreO);
-    console.log('Game reset!');
-
-singleClick();
-});
-
-}
+// }
 
 });
