@@ -3,9 +3,16 @@ $(document).ready(function() {
 
   var $gameCells = $('.cell');
   var moves = ["", "", "", "", "", "", "", "", ""];
-  // var moves = Array(9).join(".").split(".");
+  var winner = null;
+  var scoreX = 0;
+  var scoreO = 0;
   var counter = 0;
   var turn = 'X';
+
+
+// singleClick();
+
+// function singleClick() {
 
   $($gameCells).one('click', function() {
     console.log('Gameboard clicked!');
@@ -23,52 +30,71 @@ $(document).ready(function() {
 
     console.log(this.id);
     console.log(moves, counter, turn);
+    console.log('Score = ' + scoreX + ' : ' + scoreO);
 
-  });
 
 //Determine Winner
-var function getWinner() {
-  if (winnerIs('x')) {
+function getWinner(turn) {
+  if (winnerIs('X')) {
     return 'Player X wins!';
+    scoreX++;
   }
-  else if (winnerIs('o')) {
+  if (winnerIs('O')) {
     return 'Player O wins!';
+    scoreO++;
   }
   else {
     return null;
   }
 }
 
-var function winnerIs(){
-  return winByRow() || winByColumn() || winByDiagonal();
+function winnerIs(turn){
+  return winByRow(turn) || winByColumn(turn) || winByDiagonal(turn);
 }
 
-function winByRow() {
-  if (moves[0] && moves[1] && moves[2] == 'X') {
-    return 'player X wins!'
-  }
-  else if (moves[3] && moves[4] && moves[5] == 'X') {
-    return 'player X wins!'
-}
-  else if (moves[6] && moves[7] && moves[8] == 'X') {
-    return 'player X wins!'
-  }
+function winByRow(turn) {
+    return threeOfAKind(turn, moves[0], moves[1], moves[2]) || threeOfAKind(turn, moves[3], moves[4], moves[5]) || threeOfAKind(turn , moves[6], moves[7], moves[8]);
 }
 
-function winByColumn() {
-
+function winByColumn(turn) {
+    return threeOfAKind(turn, moves[0], moves[3], moves[6]) || threeOfAKind(turn, moves[1], moves[4], moves[7]) || threeOfAKind(turn , moves[2], moves[5], moves[8]);
 }
 
-function winByDiagonal() {
+function winByDiagonal(turn) {
+    return threeOfAKind(turn, moves[0], moves[4], moves[8]) || threeOfAKind(turn, moves[2], moves[4], moves[6]);
+}
 
+function threeOfAKind(turn, cell1, cell2, cell3) {
+  return ((cell1 === turn) && (cell2 === turn) && (cell3 === turn));
 }
 
 
-  var oIsWinner = function(){
+winner = getWinner();
 
-  }
+if (winner !== null) {
+    alert(winner);
+}
+else if ((counter === 9) && (winner === null)) {
+    alert("Nobody wins! It's a tie!");
+}
 
+  });
 
-
+// }
+/*
+$('#play_again').on('click', function() {
+    console.log('Game reset!');
+    // moves[this.id] = (counter % 2 == 0)? 'X' : 'O';
+    // moves[this.id] = this.id;
+    moves = ["", "", "", "", "", "", "", "", ""];
+    $('.cell').html("");
+    counter = 0;
+    turn = 'X';
+    winner = null;
+    console.log(moves, counter, turn);
+    console.log('Score = ' + scoreX + ' : ' + scoreO);
+singleClick();
+});
+*/
 
 });
