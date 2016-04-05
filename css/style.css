@@ -6,7 +6,6 @@ body {
   background-size: cover;
   background-color: black;
   -webkit-box-pack: center; /*packages boxes and centers website*/
-  /*background-color: black;*/
 }
 
 .cell {
@@ -32,15 +31,11 @@ div .board {
 }
 
 div .playerselect {
-  /*float: right;*/
-  /*margin: 100px 0px 100px 0px;*/
   background-color: gray;
   border: black solid 1px;
 }
 
 div .scoreboard {
-  /*float: left;*/
-  /*margin: 100px 0px 100px 0px;*/
   background-color: #383838;
   border: black solid 1px;
 }

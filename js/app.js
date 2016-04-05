@@ -88,6 +88,9 @@ function playGame(turn) {
     $('#scoreO').text(scoreO);
     $('#scoreTie').text(ties);
 
+    $('.cell').append('<img id="xwing" src="images/X_Wing.png" />')
+    $('.cell').append('<img id="tiefighter" src="theImg.png" />')
+
   });
 //
 
