@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
 var $gameCells = $('.cell');
-var $resetButton = $('#play_again');
+var $resetButton = $('#play_again').hide();
 var scoreX = 0;
 var scoreO = 0;
 var ties = 0;
@@ -11,7 +11,6 @@ var moves = ["", "", "", "", "", "", "", "", ""];
 var turn = 'X';
 var counter = 0;
 
-
 $('#scoreX').text(scoreX);
 $('#scoreO').text(scoreO);
 $('#scoreTie').text(ties);
@@ -20,18 +19,17 @@ playGame();
 
 // Reset game
   $($resetButton).on('click', function() {
-    // moves[this.id] = (counter % 2 == 0)? 'X' : 'O';
-    // moves[this.id] = this.id;
       $($gameCells).off('click');
       $('.cell').html("");
       $(this).on();
-      var moves = ["", "", "", "", "", "", "", "", ""];
-      var counter = 0;
-      var winner = null;
-      var turn = 'X';
+      moves = ["", "", "", "", "", "", "", "", ""];
+      counter = 0;
+      winner = null;
+      turn = 'X';
       console.log(moves, counter, turn, winner);
       console.log('Score = ' + scoreX + ' : ' + scoreO + ' Ties = ' + ties);
       console.log('Game reset!');
+      $('#play_again').hide();
 
   playGame();
 
@@ -59,20 +57,6 @@ function playGame() {
     console.log(moves, counter, turn);
     console.log('Score = ' + scoreX + ' : ' + scoreO + ' Ties = ' + ties);
 
-/*
-    if (winner !== null && turn === 'O') {
-        alert(winner);
-        scoreX++;
-    }
-    else if (winner !== null && turn === 'X') {
-        alert(winner);
-        scoreO++;
-    }
-    else if ((counter === 9) && (winner === null)) {
-        alert("Nobody wins! It's a tie!");
-        ties++
-    }
-*/
     $('#scoreX').text(scoreX);
     $('#scoreO').text(scoreO);
     $('#scoreTie').text(ties);
@@ -85,14 +69,17 @@ function getWinner(turn) {
   if (winnerIs('X')) {
     alert('Player X wins!');
     scoreX++;
+    $('#play_again').show();
   }
   if (winnerIs('O')) {
     alert('Player O wins!');
     scoreO++;
+    $('#play_again').show();
   }
   else if (counter === 9) {
     alert("Nobody wins! It's a tie!");
     ties++
+    $('#play_again').show();
   }
 }
 
@@ -117,9 +104,5 @@ function threeOfAKind(turn, cell1, cell2, cell3) {
 }
 //
 }
-
-
-
-// }
 
 });
