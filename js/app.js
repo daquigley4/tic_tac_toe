@@ -25,7 +25,7 @@ $("input:radio[name=player]").on('click', function() {
   $($gameCells).off();
   turn = $(this).val();
   console.log(turn);
-  $('#player').html('<h3>You are player ' + turn + '!</h3>');
+  $('#players').html('<h3>You are player ' + turn + '!</h3>');
   playGame(turn);
 });
 //

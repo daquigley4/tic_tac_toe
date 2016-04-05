@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Tic Tac Toe</title>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="./css/style.css">
   <script type="text/javascript" src="./js/jquery-2.2.2.min.js"></script>
   <script type="text/javascript" src="./js/app.js"></script>
@@ -10,10 +11,10 @@
 
   <h1>Tic Tac Toe!</h1>
 
-  <div class="player">
+  <div class="playerselect">
   <aside class="radio">
     <h2>Player Select:</h2>
-    <div id="player">
+    <div id="players">
     <h3>I want to be "X"!</h3><input id="x_radio" type="radio" name="player" value="X"><br />
     <h3>I want to be "O"!</h3><input id="o_radio" type="radio" name="player" value="O">
     </div>
@@ -41,12 +42,14 @@
   <input id="play_again" type="button" value="Play again!">
   </div>
 
-  <div class="score">
-  <aside class="score">
+  <div class="scoreboard">
+  <aside class="scoreboard">
     <h2>Score:</h2>
+    <div id="scores">
     <p>Player X Wins: <span id="scoreX"></span></p><br />
     <p>Player O Wins: <span id="scoreO"></span></p><br />
-    <p>Ties: <span id="scoreTie"></p>
+    <p>Ties: <span id="scoreTie"></span></p>
+    </div>
   </aside>
   </div>
 
