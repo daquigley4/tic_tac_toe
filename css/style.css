@@ -2,6 +2,11 @@ body {
   font-size: 10px;
   text-align: center;
   -webkit-box-pack: center; /*packages boxes and centers website*/
+  /*background-color: black;*/
+}
+
+div .board .player .score{
+  display: inline-block;
 }
 
 #gameboard {
@@ -22,12 +27,16 @@ body {
   /*box-sizing: border-box;*/
 }
 
-.radio {
-  float: right;
-  margin: 0px 150px 100px 0px;
+div .board {
+  margin: 100px;
 }
 
-.score {
-  float: left;
-  margin: 0px 0px 100px 150px;
+div .player {
+  /*float: right;*/
+  margin: 100px 0px 100px 0px;
+}
+
+div .score {
+  /*float: left;*/
+  margin: 100px 0px 100px 0px;
 }

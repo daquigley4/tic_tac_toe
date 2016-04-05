@@ -7,8 +7,20 @@
   <script type="text/javascript" src="./js/app.js"></script>
 </head>
 <body>
-<h1>Tic Tac Toe!</h1>
 
+  <h1>Tic Tac Toe!</h1>
+
+  <div class="player">
+  <aside class="radio">
+    <h2>Player Select:</h2>
+    <div id="player">
+    <h3>I want to be "X"!</h3><input id="x_radio" type="radio" name="player" value="X"><br />
+    <h3>I want to be "O"!</h3><input id="o_radio" type="radio" name="player" value="O">
+    </div>
+  </aside>
+  </div>
+
+  <div class="board">
   <section id="gameboard">
     <section class="row">
       <div class="cell" id="0"></div>
@@ -27,17 +39,16 @@
     </section>
   </section>
   <input id="play_again" type="button" value="Play again!">
-  <aside class="radio">
-    <h2>Player Select:</h2>
-    <h3>I want to be "X"!</h3><input id="x_radio" type="radio" name="player" value="X"><br />
-    <h3>I want to be "O"!</h3><input id="o_radio" type="radio" name="player" value="O">
-  </aside>
+  </div>
+
+  <div class="score">
   <aside class="score">
     <h2>Score:</h2>
-    <p>Player X Wins: <span id="scoreX"></p><br />
-    <p>Player O Wins: <span id="scoreO"></p><br />
+    <p>Player X Wins: <span id="scoreX"></span></p><br />
+    <p>Player O Wins: <span id="scoreO"></span></p><br />
     <p>Ties: <span id="scoreTie"></p>
   </aside>
+  </div>
 
 </body>
 </html>
