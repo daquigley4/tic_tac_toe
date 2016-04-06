@@ -10,9 +10,22 @@ var moves = ["", "", "", "", "", "", "", "", ""];
 var counter = 0;
 var turn = null;
 
+var xwing = new Audio('sounds/XWing-Laser.wav');
+var tiefighter  = new Audio('sounds/TIE-Fire.wav');
+var starwars = new Audio('sounds/star-wars-theme-song.mp3');
+    starwars.duration = 5;
+    starwars.volume = 0.15;
+var imperials = new Audio('sounds/imperial_march.wav');
+    imperials.duration = 5;
+var rebels = new Audio('sounds/rebel-theme.wav');
+    rebels.duration = 5;
+var chewbacca = new Audio('sounds/chewy_roar.wav');
+
 $('#scoreX').text(scoreX);
 $('#scoreO').text(scoreO);
 $('#scoreTie').text(ties);
+
+// starwars.play();
 
 //  Alert to select player
 $($gameCells).on('click', function() {
@@ -51,20 +64,16 @@ playGame(turn);
 
 // Play game: start clicking board!
 function playGame(turn) {
-  /*
-  var blaster = document.createElement("audio");
-  obj.src =
-  obj.volume =
-  obj.autoPlay = false;
-  obj.preLoad = true;
-  */
+
   $($gameCells).one('click', function() {
     console.log('Gameboard clicked!');
     if (turn === 'X') {
     $(this).html('<img id="xwing" src="css/images/X_Wing.png" />').attr("style", "text-align: center; vertical-align: middle;");
+    xwing.play();
     }
     if (turn === 'O') {
     $(this).html('<img id="tiefighter" src="css/images/Tie_Fighter.png" />').attr("style", "text-align: center; vertical-align: middle;");
+    tiefighter.play();
     }
     moves[this.id] = turn;
     // counter++;
@@ -106,18 +115,21 @@ function playGame(turn) {
 //Determine Winner
   function getWinner(turn) {
     if (winnerIs('X')) {
+      rebels.play();
       alert('Player X wins!');
       scoreX++;
       $($gameCells).off('click');
       $('#play_again').show().attr("style", "margin: 0 auto;");
     }
     else if (winnerIs('O')) {
+      imperials.play();
       alert('Player O wins!');
       scoreO++;
       $($gameCells).off('click');
       $('#play_again').show().attr("style", "margin: 0 auto;");
     }
     else if (counter === 9 && winner === null) {
+      chewbacca.play();
       alert("Nobody wins! It's a tie!");
       ties++
       $($gameCells).off('click');
