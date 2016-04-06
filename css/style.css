@@ -1,6 +1,5 @@
 body {
-  /*font-family: 'Montserrat', sans-serif;*/
-  font-family: 'Starwars';
+  font-family: 'Starwars', 'Orbitron', Arial;
   color: #dd912f;
   -webkit-text-fill-color: #dd912f; /* Will override color (regardless of order) */
    -webkit-text-stroke-width: 1px;
