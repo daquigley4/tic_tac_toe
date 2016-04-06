@@ -51,7 +51,13 @@ playGame(turn);
 
 // Play game: start clicking board!
 function playGame(turn) {
-
+  /*
+  var blaster = document.createElement("audio");
+  obj.src =
+  obj.volume =
+  obj.autoPlay = false;
+  obj.preLoad = true;
+  */
   $($gameCells).one('click', function() {
     console.log('Gameboard clicked!');
     if (turn === 'X') {
