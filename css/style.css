@@ -1,51 +1,80 @@
 body {
-  font-family: 'Montserrat', sans-serif;
+  /*font-family: 'Montserrat', sans-serif;*/
+  font-family: 'Starwars';
+  color: #dd912f;
+  -webkit-text-fill-color: #dd912f; /* Will override color (regardless of order) */
+   -webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: black;
   font-size: 12px;
   text-align: center;
   background-image: url("images/Death_Star.png");
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   background-color: black;
   -webkit-box-pack: center; /*packages boxes and centers website*/
+}
+
+h1 {
+  font-size: 4em;
+}
+
+h2 {
+  font-size: 3em;
+  padding: 0;
+}
+
+h3 {
+  font-size: 2em;
 }
 
 .cell {
   border: black solid 2px;
   width: 10em;
   height: 10em;
+  vertical-align: middle;
   /*display: inline-block;*/
   float: left;
+  background-color: #2f3438;
 }
 
 .row {
   /*box-sizing: border-box;*/
 }
 
-aside {
-  width: 50vw;
+.scoreboard {
+  width: 30vw;
   margin: 0 auto;
 }
 
-div .board {
-  margin: 100px;
-  background-color: gray;
+.board {
+  margin: 0 auto;
 }
 
 div .playerselect {
-  background-color: gray;
-  border: black solid 1px;
+  background-color: #2f3438;
+  border: black solid 2px;
+  margin: 0px 0px 100px 0px;
+  text-align: center;
 }
 
-div .scoreboard {
-  background-color: #383838;
-  border: black solid 1px;
+div .scores {
+  background-color: #2f3438;
+  border: black solid 2px;
+  margin: 100px 0px 0px 0px;
 }
 
 div #scores {
-  border: black solid 1px;
+  /*border: black solid 2px;*/
 }
 
 div #players {
-  border: black solid 1px;
+  /*border: black solid 2px;*/
+}
+
+#players ul li {
+  list-style-type: none;
+  display: inline;
 }
 
 #gameboard {

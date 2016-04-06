@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Tic Tac Toe</title>
+  <title>Tic Tac Toe Wars</title>
   <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="./css/style.css">
   <script type="text/javascript" src="./js/jquery-2.2.2.min.js"></script>
@@ -9,14 +9,16 @@
 </head>
 <body>
 
-  <h1>Tic Tac Toe!</h1>
+  <h1>Tic Tac Toe Wars</h1>
 
   <div class="playerselect">
   <aside class="radio">
     <h2>Player Select:</h2>
     <div id="players">
-    <h3>I want to be "X"!</h3><input id="x_radio" type="radio" name="player" value="X"><br />
-    <h3>I want to be "O"!</h3><input id="o_radio" type="radio" name="player" value="O">
+      <ul>
+        <li>I want to be "X"!<input id="x_radio" type="radio" name="player" value="X"></li>
+        <li>I want to be "O"!<input id="o_radio" type="radio" name="player" value="O"></li>
+      </ul>
     </div>
   </aside>
   </div>
@@ -42,13 +44,13 @@
   <input id="play_again" type="button" value="Play again!">
   </div>
 
-  <div class="scoreboard">
+  <div class="scores">
   <aside class="scoreboard">
     <h2>Score:</h2>
     <div id="scores">
-    <p>Player X Wins: <span id="scoreX"></span></p><br />
-    <p>Player O Wins: <span id="scoreO"></span></p><br />
-    <p>Ties: <span id="scoreTie"></span></p>
+    <p><h3>Player X Wins: <span id="scoreX"></span></h3></p><br />
+    <p><h3>Player O Wins: <span id="scoreO"></span></h3></p><br />
+    <p><h3>Ties: <span id="scoreTie"></span></h3></p>
     </div>
   </aside>
   </div>

@@ -25,7 +25,7 @@ $("input:radio[name=player]").on('click', function() {
   $($gameCells).off();
   turn = $(this).val();
   console.log(turn);
-  $('#players').html('<h3>You are player ' + turn + '!</h3>');
+  $('#players').html('<h3>Player 1 is ' + turn + '!</h3>').attr("style", "text-align: center; font-size: 2em;");
   playGame(turn);
 });
 //
@@ -54,7 +54,12 @@ function playGame(turn) {
 
   $($gameCells).one('click', function() {
     console.log('Gameboard clicked!');
-    $(this).html(turn);
+    if (turn === 'X') {
+    $(this).html('<img id="xwing" src="css/images/X_Wing.png" />').attr("style", "text-align: center; vertical-align: middle;");
+    }
+    if (turn === 'O') {
+    $(this).html('<img id="tiefighter" src="css/images/Tie_Fighter.png" />').attr("style", "text-align: center; vertical-align: middle;");
+    }
     moves[this.id] = turn;
     // counter++;
 
@@ -88,9 +93,7 @@ function playGame(turn) {
     $('#scoreO').text(scoreO);
     $('#scoreTie').text(ties);
 
-    $('.cell').append('<img id="xwing" src="images/X_Wing.png" />')
-    $('.cell').append('<img id="tiefighter" src="theImg.png" />')
-
+    // $(this2).html(turn).attr("style", "color: lightblue; text-align: center; line-height:150px;")
   });
 //
 
@@ -102,13 +105,13 @@ function playGame(turn) {
       $($gameCells).off('click');
       $('#play_again').show();
     }
-    if (winnerIs('O')) {
+    else if (winnerIs('O')) {
       alert('Player O wins!');
       scoreO++;
       $($gameCells).off('click');
       $('#play_again').show();
     }
-    else if (counter === 9) {
+    else if (counter === 9 && winner === null) {
       alert("Nobody wins! It's a tie!");
       ties++
       $($gameCells).off('click');
