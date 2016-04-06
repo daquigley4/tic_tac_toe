@@ -48,6 +48,12 @@ $($resetButton).on('click', function() {
   $($gameCells).off('click');
   $('.cell').html("");
   $(this).on();
+  rebels.pause();
+  rebels.currentTime = 0;
+  imperials.pause();
+  imperials.currentTime = 0;
+  chewbacca.pause();
+  chewbacca.currentTime = 0;
   moves = ["", "", "", "", "", "", "", "", ""];
   counter = 0;
   winner = null;
