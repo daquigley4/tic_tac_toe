@@ -25,7 +25,7 @@ $("input:radio[name=player]").on('click', function() {
   $($gameCells).off();
   turn = $(this).val();
   console.log(turn);
-  $('#players').html('<h3>Player 1 is ' + turn + '!</h3>').attr("style", "text-align: center; font-size: 2em;");
+  $('#players').html('<h3>Player 1 is ' + turn + '!</h3>').attr("style", "text-align: center; font-size: 1em;");
   playGame(turn);
 });
 //
@@ -103,19 +103,19 @@ function playGame(turn) {
       alert('Player X wins!');
       scoreX++;
       $($gameCells).off('click');
-      $('#play_again').show();
+      $('#play_again').show().attr("style", "margin: 0 auto;");
     }
     else if (winnerIs('O')) {
       alert('Player O wins!');
       scoreO++;
       $($gameCells).off('click');
-      $('#play_again').show();
+      $('#play_again').show().attr("style", "margin: 0 auto;");
     }
     else if (counter === 9 && winner === null) {
       alert("Nobody wins! It's a tie!");
       ties++
       $($gameCells).off('click');
-      $('#play_again').show();
+      $('#play_again').show().attr("style", "margin: 0 auto;");
     }
   }
 
