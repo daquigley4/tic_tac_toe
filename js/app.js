@@ -74,12 +74,12 @@ function playGame(turn) {
 
   $($gameCells).one('click', function() {
     console.log('Gameboard clicked!');
-    if (turn === 'Rebels') {
+    if (turn === 'X') {
     $(this).html('<img id="xwing" src="css/images/X_Wing.png" />')
       .attr("style", "text-align: center; vertical-align: middle;");
     xwing.play();
     }
-    if (turn === 'Imperials') {
+    if (turn === 'O') {
     $(this).html('<img id="tiefighter" src="css/images/Tie_Fighter.png" />')
       .attr("style", "text-align: center; vertical-align: middle;");
     tiefighter.play();
@@ -87,25 +87,25 @@ function playGame(turn) {
     moves[this.id] = turn;
     // counter++;
 
-    if (counter % 2 == 0 && turn === 'Rebels') {
+    if (counter % 2 == 0 && turn === 'X') {
       counter++;
-      turn = 'Imperials';
-      getWinner('Imperials');
+      turn = 'O';
+      getWinner('O');
     }
-    else if (counter % 2 != 0 && turn === 'Imperials') {
+    else if (counter % 2 != 0 && turn === 'O') {
       counter++;
-      turn = 'Rebels';
-      getWinner('Rebels');
+      turn = 'X';
+      getWinner('X');
     }
-    else if (counter % 2 == 0 && turn === 'Imperials') {
+    else if (counter % 2 == 0 && turn === 'O') {
       counter++;
-      turn = 'Rebels';
-      getWinner('Rebels');
+      turn = 'X';
+      getWinner('X');
     }
-    else if (counter % 2 != 0 && turn === 'Rebels') {
+    else if (counter % 2 != 0 && turn === 'X') {
       counter++;
-      turn = 'Imperials';
-      getWinner('Imperials');
+      turn = 'O';
+      getWinner('O');
     }
 
     console.log(this.id);
@@ -123,16 +123,16 @@ function playGame(turn) {
 
 //Determine Winner
   function getWinner(turn) {
-    if (winnerIs('Rebels')) {
+    if (winnerIs('X')) {
       rebels.play();
-      alert('Rebels win!');
+      alert('Player X wins!');
       scoreX++;
       $($gameCells).off('click');
       $('#play_again').show().attr("style", "margin: 0 auto;");
     }
-    else if (winnerIs('Imperials')) {
+    else if (winnerIs('O')) {
       imperials.play();
-      alert('Imperials win!');
+      alert('Player O wins!');
       scoreO++;
       $($gameCells).off('click');
       $('#play_again').show().attr("style", "margin: 0 auto;");
