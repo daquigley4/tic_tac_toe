@@ -23,10 +23,10 @@ Tic Tac Toe Wars is a simple, two player, turn-based strategy game.  The objecti
 -Project Management: Trello
 
 #### Wireframe:
--https://trello.com/c/Vk08QVfM/23-mvp-wireframe
+[MVP Wireframe](https://trello.com/c/Vk08QVfM/23-mvp-wireframe)
 
 #### Project link:
--http://daquigley4.github.io/tic_tac_toe/
+[Tic Tac Toe Wars - application](http://daquigley4.github.io/tic_tac_toe/)
 
 ### Future Features:
 
